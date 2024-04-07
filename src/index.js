@@ -1,32 +1,42 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import App from "./components/App";
+
+ReactDOM.render(
+  // <div>
+  //   <Heading />
+  //   <List />
+  // </div>,
+  <App />,
+  document.getElementById("root"),
+);
 
 //Task
 // const date = new Date(2019, 1, 1, 20);
-const date = new Date();
+// const date = new Date();
 
-const currentTime = date.getHours();
-let greeting;
-const customStyle = {
-  color: "",
-};
-if (currentTime < 12) {
-  greeting = "Good Morning";
-  customStyle.color = "red";
-} else if (currentTime < 18) {
-  greeting = "Good AFternoon";
-  customStyle.color = "green";
-} else {
-  greeting = "Good Night";
-  customStyle.color = "blue";
-}
+// const currentTime = date.getHours();
+// let greeting;
+// const customStyle = {
+//   color: "",
+// };
+// if (currentTime < 12) {
+//   greeting = "Good Morning";
+//   customStyle.color = "red";
+// } else if (currentTime < 18) {
+//   greeting = "Good AFternoon";
+//   customStyle.color = "green";
+// } else {
+//   greeting = "Good Night";
+//   customStyle.color = "blue";
+// }
 
-ReactDOM.render(
-  <h1 style={customStyle} className="heading">
-    {greeting}
-  </h1>,
-  document.getElementById("root"),
-);
+// ReactDOM.render(
+//   <h1 style={customStyle} className="heading">
+//     {greeting}
+//   </h1>,
+//   document.getElementById("root"),
+// );
 // const food1 = "Bacon";
 // const food2 = "Noodles";
 // const food3 = "Jamon";
