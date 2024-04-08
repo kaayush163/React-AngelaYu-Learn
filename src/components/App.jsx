@@ -12,13 +12,19 @@
 import React from "react";
 import Heading from "./Heading";
 import List from "./List";
-
+// import PI, { doublePi, triplePi } from "./math";
+import * as pi from "./math";
+console.log(pi);
 function App() {
   return (
     <div>
       <Heading />
       <List />
       <List />
+      <li>{pi.default}</li>
+      <li>{pi.doublePi()}</li>
+      <li>{pi.triplePi()}</li>
+      <li>{pi.add(2, 3)}</li>;
     </div>
   );
 }
