@@ -60,3 +60,11 @@ const findIndex = numbers.findIndex(function (num) {
   return num > 10;
 });
 //return index of elemnet which value is greated thean 10
+
+//Truncate every message to 100 length substrings so we use .substring(0,100)
+import emojipedia from "./emojipedia";
+
+const newEmojipedia = emojipedia.map(function (emoji) {
+  return emoji.meaning.substring(0, 100);
+});
+console.log(newEmojipedia);

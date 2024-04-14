@@ -4,16 +4,16 @@ import emojipedia from "../emojipedia";
 
 console.log(emojipedia);
 
-function createEntry(emojiTerm) {
-  return (
-    <Entry
-      key={emojiTerm.id}
-      emoji={emojiTerm.emoji}
-      name={emojiTerm.name}
-      description={emojiTerm.meaning}
-    />
-  );
-}
+// function createEntry(emojiTerm) {
+//   return (
+//     <Entry
+//       key={emojiTerm.id}
+//       emoji={emojiTerm.emoji}
+//       name={emojiTerm.name}
+//       description={emojiTerm.meaning}
+//     />
+//   );
+// }
 
 function App() {
   return (
@@ -21,7 +21,20 @@ function App() {
       <h1>
         <span>emojipedia</span>
       </h1>
-      <dl className="dictionary">{emojipedia.map(createEntry)}</dl>
+      <dl className="dictionary">
+        {emojipedia.map(
+          (
+            emojiTerm, //instead of doing with normal function we do it by fat arrow fucntions
+          ) => (
+            <Entry
+              key={emojiTerm.id}
+              emoji={emojiTerm.emoji}
+              name={emojiTerm.name}
+              description={emojiTerm.meaning}
+            />
+          ),
+        )}
+      </dl>
     </div>
   );
 }
