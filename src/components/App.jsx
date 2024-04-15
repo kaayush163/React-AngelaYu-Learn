@@ -1,45 +1,83 @@
 import React from "react";
-import Entry from "./Entry";
-import emojipedia from "../emojipedia";
+import Login from "./Login";
 
-console.log(emojipedia);
+var isLoggedIn = false;
 
-// function createEntry(emojiTerm) {
-//   return (
-//     <Entry
-//       key={emojiTerm.id}
-//       emoji={emojiTerm.emoji}
-//       name={emojiTerm.name}
-//       description={emojiTerm.meaning}
-//     />
-//   );
+const currTime = new Date().getHours();
+
+// function renderConditionally() {
+//   if (isLoggedIn === true) {
+//     return <h1>Hello</h1>;
+//   } else {
+//     return <Login />;
+//   }
 // }
 
 function App() {
-  return (
-    <div>
-      <h1>
-        <span>emojipedia</span>
-      </h1>
-      <dl className="dictionary">
-        {emojipedia.map(
-          (
-            emojiTerm, //instead of doing with normal function we do it by fat arrow fucntions
-          ) => (
-            <Entry
-              key={emojiTerm.id}
-              emoji={emojiTerm.emoji}
-              name={emojiTerm.name}
-              description={emojiTerm.meaning}
-            />
-          ),
-        )}
-      </dl>
-    </div>
-  );
+  return;
+  // <div className="container">{renderConditionally()}</div>;
+  // <div className="container">{ if (isLoggedIn === true) {
+  //     return <h1>Hello</h1>;
+  //     } else {
+  //        return <Login />;
+  //     }}
+  //   </div>;
+  <div className="container">
+    {isLoggedIn ? <h1>Hello</h1> : <Login />}
+    {currTime > 12 ? <h1>Why are you still working?</h1> : null}
+  </div>;
 }
 
 export default App;
+// import React from "react";
+// import Login from "./Login";
+
+// var isLoggedIn = false;
+
+// function renderConditionally() {}
+
+// import React from "react";
+// import Entry from "./Entry";
+// import emojipedia from "../emojipedia";
+
+// console.log(emojipedia);
+
+// // function createEntry(emojiTerm) {
+// //   return (
+// //     <Entry
+// //       key={emojiTerm.id}
+// //       emoji={emojiTerm.emoji}
+// //       name={emojiTerm.name}
+// //       description={emojiTerm.meaning}
+// //     />
+// //   );
+// // }
+
+// function App() {
+//   return (
+//     <div>
+//       <h1>
+//         <span>emojipedia</span>
+//       </h1>
+//       <dl className="dictionary">
+//         {emojipedia.map(
+//           (
+//             emojiTerm, //instead of doing with normal function we do it by fat arrow fucntions
+//           ) => (
+//             <Entry
+//               key={emojiTerm.id}
+//               emoji={emojiTerm.emoji}
+//               name={emojiTerm.name}
+//               description={emojiTerm.meaning}
+//             />
+//           ),
+//         )}
+//       </dl>
+//     </div>
+//   );
+// }
+
+// export default App;
 
 // import React from "react";
 // import Card from "./Card";
