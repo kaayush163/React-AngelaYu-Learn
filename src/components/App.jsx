@@ -1,34 +1,48 @@
 import React from "react";
-import Login from "./Login";
+import Form from "./Form";
 
-var isLoggedIn = false;
-
-const currTime = new Date().getHours();
-
-// function renderConditionally() {
-//   if (isLoggedIn === true) {
-//     return <h1>Hello</h1>;
-//   } else {
-//     return <Login />;
-//   }
-// }
+const userIsRegistered = false;
 
 function App() {
-  return;
-  // <div className="container">{renderConditionally()}</div>;
-  // <div className="container">{ if (isLoggedIn === true) {
-  //     return <h1>Hello</h1>;
-  //     } else {
-  //        return <Login />;
-  //     }}
-  //   </div>;
-  <div className="container">
-    {isLoggedIn ? <h1>Hello</h1> : <Login />}
-    {currTime > 12 ? <h1>Why are you still working?</h1> : null}
-  </div>;
+  return (
+    <div className="container">
+      <Form isRegistered={userIsRegistered} />
+    </div>
+  );
 }
 
 export default App;
+// import React from "react";
+// import Login from "./Login";
+
+// var isLoggedIn = false;
+
+// const currTime = new Date().getHours();
+
+// // function renderConditionally() {
+// //   if (isLoggedIn === true) {
+// //     return <h1>Hello</h1>;
+// //   } else {
+// //     return <Login />;
+// //   }
+// // }
+
+// function App() {
+//   return;
+//   // <div className="container">{renderConditionally()}</div>;
+//   // <div className="container">{ if (isLoggedIn === true) {
+//   //     return <h1>Hello</h1>;
+//   //     } else {
+//   //        return <Login />;
+//   //     }}
+//   //   </div>;
+//   <div className="container">
+//     {isLoggedIn ? <h1>Hello</h1> : <Login />}
+//     {currTime > 12 ? <h1>Why are you still working?</h1> : null}
+//   </div>;
+// }
+
+// export default App;
 // import React from "react";
 // import Login from "./Login";
 
