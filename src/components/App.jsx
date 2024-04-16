@@ -1,34 +1,55 @@
 import React, { useState } from "react";
 
 function App() {
-  // var ct = 0;
-  const [count, setCount] = React.useState(0);
-  // console.log(state); // can see two arguments
+  setInterval(changeTime, 1000);
+  const newTime = new Date().toLocaleTimeString();
+  const [time, setTime] = useState(newTime);
+  function changeTime() {
+    // setTime = new Date().toLocaleTimeString;
+    const newTime = new Date().toLocaleTimeString();
+    setTime(newTime);
+  }
 
-  function increase() {
-    setCount(count + 1);
-    // ct++;
-    // ReactDOM.render(
-    //   <div className="container">
-    //     <h1>{ct}</h1>
-    //     <button onClick={increase}>+</button>
-    //   </div>,
-    //   document.getElementById("root"),
-    // );
-  }
-  function decrease() {
-    setCount(count - 1);
-  }
   return (
     <div className="container">
-      <h1>{count}</h1>
-      <button onClick={increase}>+</button>
-      <button onClick={decrease}>-</button>
+      <h1>{time}</h1>
+      <button onClick={changeTime}>Get Time</button>
     </div>
   );
 }
 
 export default App;
+// import React, { useState } from "react";
+
+// function App() {
+//   // var ct = 0;
+//   const [count, setCount] = React.useState(0);
+//   // console.log(state); // can see two arguments
+
+//   function increase() {
+//     setCount(count + 1);
+//     // ct++;
+//     // ReactDOM.render(
+//     //   <div className="container">
+//     //     <h1>{ct}</h1>
+//     //     <button onClick={increase}>+</button>
+//     //   </div>,
+//     //   document.getElementById("root"),
+//     // );
+//   }
+//   function decrease() {
+//     setCount(count - 1);
+//   }
+//   return (
+//     <div className="container">
+//       <h1>{count}</h1>
+//       <button onClick={increase}>+</button>
+//       <button onClick={decrease}>-</button>
+//     </div>
+//   );
+// }
+
+// export default App;
 // import React from "react";
 
 // function strike() {
