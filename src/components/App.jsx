@@ -1,27 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 
-function strike() {
-  document.getElementById("root").style.textDecoration = "line-through";
-}
-function unStrike() {
-  document.getElementById("root").style.textDecoration = null;
-}
 function App() {
-  var isDone = false;
-  const strikeThrough = { textDecoration: "line-through" };
+  // var ct = 0;
+  const [count, setCount] = React.useState(0);
+  // console.log(state); // can see two arguments
+
+  function increase() {
+    setCount(count + 1);
+    // ct++;
+    // ReactDOM.render(
+    //   <div className="container">
+    //     <h1>{ct}</h1>
+    //     <button onClick={increase}>+</button>
+    //   </div>,
+    //   document.getElementById("root"),
+    // );
+  }
+  function decrease() {
+    setCount(count - 1);
+  }
   return (
-    <div>
-      <p> Buy milk</p>
-      <button onClick={strike}>Change to strike through</button>
-      <button onClick={unStrike}>Change back to unstriek</button>
+    <div className="container">
+      <h1>{count}</h1>
+      <button onClick={increase}>+</button>
+      <button onClick={decrease}>-</button>
     </div>
   );
-  //return <p style={isDone && strikeThrough}>Buy Milk</p>;
-  // return <p style={isDone ? strikeThrough : null}>Buy Milk</p>;
-  // return <p style={{ textDecoration: "line-through" }}>Buy Milk</p>;
 }
 
 export default App;
+// import React from "react";
+
+// function strike() {
+//   document.getElementById("root").style.textDecoration = "line-through";
+// }
+// function unStrike() {
+//   document.getElementById("root").style.textDecoration = null;
+// }
+// function App() {
+//   var isDone = false;
+//   const strikeThrough = { textDecoration: "line-through" };
+//   return (
+//     <div>
+//       <p> Buy milk</p>
+//       <button onClick={strike}>Change to strike through</button>
+//       <button onClick={unStrike}>Change back to unstriek</button>
+//     </div>
+//   );
+//   //return <p style={isDone && strikeThrough}>Buy Milk</p>;
+//   // return <p style={isDone ? strikeThrough : null}>Buy Milk</p>;
+//   // return <p style={{ textDecoration: "line-through" }}>Buy Milk</p>;
+// }
+
+// export default App;
 // import React from "react";
 // import Form from "./Form";
 
