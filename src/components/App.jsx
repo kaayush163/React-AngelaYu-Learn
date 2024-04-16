@@ -1,17 +1,41 @@
 import React from "react";
-import Form from "./Form";
 
-const userIsRegistered = false;
-
+function strike() {
+  document.getElementById("root").style.textDecoration = "line-through";
+}
+function unStrike() {
+  document.getElementById("root").style.textDecoration = null;
+}
 function App() {
+  var isDone = false;
+  const strikeThrough = { textDecoration: "line-through" };
   return (
-    <div className="container">
-      <Form isRegistered={userIsRegistered} />
+    <div>
+      <p> Buy milk</p>
+      <button onClick={strike}>Change to strike through</button>
+      <button onClick={unStrike}>Change back to unstriek</button>
     </div>
   );
+  //return <p style={isDone && strikeThrough}>Buy Milk</p>;
+  // return <p style={isDone ? strikeThrough : null}>Buy Milk</p>;
+  // return <p style={{ textDecoration: "line-through" }}>Buy Milk</p>;
 }
 
 export default App;
+// import React from "react";
+// import Form from "./Form";
+
+// const userIsRegistered = false;
+
+// function App() {
+//   return (
+//     <div className="container">
+//       <Form isRegistered={userIsRegistered} />
+//     </div>
+//   );
+// }
+
+// export default App;
 // import React from "react";
 // import Login from "./Login";
 
