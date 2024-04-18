@@ -1,45 +1,50 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import cars from "./practice";
-console.log(cars);
-const [honda, tesla] = cars;
-console.log(honda);
-console.log(tesla);
+import App from "./components/App";
+ReactDOM.render(<App />, document.getElementById("root"));
 
-const {
-  speedStats: { topSpeed: hondaTopSpeed },
-} = honda;
-const {
-  speedStats: { topSpeed: teslaTopSpeed },
-} = tesla;
+// import React from "react";
+// import ReactDOM from "react-dom";
+// import cars from "./practice";
+// console.log(cars);
+// const [honda, tesla] = cars;
+// console.log(honda);
+// console.log(tesla);
 
-const {
-  coloursByPopularity: [hondaTopColour],
-} = honda;
-const {
-  coloursByPopularity: [teslaTopColour],
-} = tesla;
+// const {
+//   speedStats: { topSpeed: hondaTopSpeed },
+// } = honda;
+// const {
+//   speedStats: { topSpeed: teslaTopSpeed },
+// } = tesla;
 
-ReactDOM.render(
-  <table>
-    <tr>
-      <th>Brand</th>
-      <th>Top Speed</th>
-      <th>Top Colour</th>
-    </tr>
-    <tr>
-      <td>{tesla.model}</td>
-      <td>{teslaTopSpeed}</td>
-      <td>{teslaTopColour}</td>
-    </tr>
-    <tr>
-      <td>{honda.model}</td>
-      <td>{hondaTopSpeed}</td>
-      <td>{hondaTopColour}</td>
-    </tr>
-  </table>,
-  document.getElementById("root"),
-);
+// const {
+//   coloursByPopularity: [hondaTopColour],
+// } = honda;
+// const {
+//   coloursByPopularity: [teslaTopColour],
+// } = tesla;
+
+// ReactDOM.render(
+//   <table>
+//     <tr>
+//       <th>Brand</th>
+//       <th>Top Speed</th>
+//       <th>Top Colour</th>
+//     </tr>
+//     <tr>
+//       <td>{tesla.model}</td>
+//       <td>{teslaTopSpeed}</td>
+//       <td>{teslaTopColour}</td>
+//     </tr>
+//     <tr>
+//       <td>{honda.model}</td>
+//       <td>{hondaTopSpeed}</td>
+//       <td>{hondaTopColour}</td>
+//     </tr>
+//   </table>,
+//   document.getElementById("root"),
+// );
 
 // import React from "react";
 // import ReactDOM from "react-dom";

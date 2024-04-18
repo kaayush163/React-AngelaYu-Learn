@@ -1,24 +1,59 @@
 import React, { useState } from "react";
 
 function App() {
-  setInterval(changeTime, 1000);
-  const newTime = new Date().toLocaleTimeString();
-  const [time, setTime] = useState(newTime);
-  function changeTime() {
-    // setTime = new Date().toLocaleTimeString;
-    const newTime = new Date().toLocaleTimeString();
-    setTime(newTime);
+  const [headingText, setHeadingText] = useState("Hello");
+  const [mouseOver, setMouseOver] = useState(false);
+  // const [mouseOut, setMouseOut] = useState(false);
+  function handleClick() {
+    setHeadingText("Submitted");
+  }
+
+  function handleMouseOver() {
+    setMouseOver(true);
+  }
+
+  function handleMouseOut() {
+    setMouseOver(false);
   }
 
   return (
     <div className="container">
-      <h1>{time}</h1>
-      <button onClick={changeTime}>Get Time</button>
+      <h1>{headingText}</h1>
+      <input type="text" />
+      <button
+        style={{ backgroundColor: mouseOver ? "black" : "white" }}
+        onClick={handleClick}
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+      >
+        onClic
+      </button>
     </div>
   );
 }
 
 export default App;
+// import React, { useState } from "react";
+
+// function App() {
+//   setInterval(changeTime, 1000);
+//   const newTime = new Date().toLocaleTimeString();
+//   const [time, setTime] = useState(newTime);
+//   function changeTime() {
+//     // setTime = new Date().toLocaleTimeString;
+//     const newTime = new Date().toLocaleTimeString();
+//     setTime(newTime);
+//   }
+
+//   return (
+//     <div className="container">
+//       <h1>{time}</h1>
+//       <button onClick={changeTime}>Get Time</button>
+//     </div>
+//   );
+// }
+
+// export default App;
 // import React, { useState } from "react";
 
 // function App() {
