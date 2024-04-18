@@ -1,8 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
+import animals, { useAnimal } from "./data";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+const [cat, dog] = animals;
+console.log(useAnimal(cat));
+
+const [animal, makeSound] = useAnimal(cat);
+console.log(animal);
+makeSound();
+
+// import React from "react";
+// import ReactDOM from "react-dom";
+// import App from "./components/App";
+
+// ReactDOM.render(<App />, document.getElementById("root"));
 
 // import React from "react";
 // import ReactDOM from "react-dom";
