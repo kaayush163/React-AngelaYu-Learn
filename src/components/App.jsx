@@ -1,38 +1,49 @@
-import React, { useState } from "react";
-function App() {
-  const [name, setName] = useState("");
-  const [heading, setHeading] = useState("");
+import React from "react";
+import ClassComponent from "./ClassComponent";
+import FunctionalComponent from "./FunctionalComponent";
 
-  function handleChange(event) {
-    console.log(event.target.value);
-    console.log(event.target.type);
-    console.log(event.target.placeholder);
-
-    setName(event.target.value);
+class App extends React.Component {
+  render() {
+    return <ClassComponent />;
   }
-  function handleClick() {
-    setHeading(name);
-  }
-
-  return (
-    <div className="container">
-      <h1>Hello {heading}</h1>
-
-      <h1>DynamicIn {name}</h1>
-      <form>
-        <input
-          onChange={handleChange}
-          type="text"
-          placeholder="What's your name?"
-          value={name} //for single source of truth
-        />
-        <button onClick={handleClick}>Submit</button>
-      </form>
-    </div>
-  );
 }
 
 export default App;
+// import React, { useState } from "react";
+// function App() {
+//   const [name, setName] = useState("");
+//   const [heading, setHeading] = useState("");
+
+//   function handleChange(event) {
+//     console.log(event.target.value);
+//     console.log(event.target.type);
+//     console.log(event.target.placeholder);
+
+//     setName(event.target.value);
+//   }
+//   function handleClick() {
+//     setHeading(name);
+//   }
+
+//   return (
+//     <div className="container">
+//       <h1>Hello {heading}</h1>
+
+//       <h1>DynamicIn {name}</h1>
+//       <form>
+//         <input
+//           onChange={handleChange}
+//           type="text"
+//           placeholder="What's your name?"
+//           value={name} //for single source of truth
+//         />
+//         <button onClick={handleClick}>Submit</button>
+//       </form>
+//     </div>
+//   );
+// }
+
+// export default App;
 // import React, { useState } from "react";
 
 // function App() {
