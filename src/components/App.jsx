@@ -1,14 +1,94 @@
-import React from "react";
-import ClassComponent from "./ClassComponent";
-import FunctionalComponent from "./FunctionalComponent";
+import React, { useState } from "react";
 
-class App extends React.Component {
-  render() {
-    return <ClassComponent />;
+function App() {
+  const [fullName, setFullName] = useState({
+    fName: "",
+    lName: "",
+  });
+
+  function handleChange(event) {
+    // const newValue = event.target.value;
+    // const inputName = event.target.name;
+    // console.log(newValue);
+    // console.log(inputName);
+    // setFullName((prev) => {
+    //   console.log(prev);
+
+    //   if (inputName === "fName") {
+    //     return {
+    //       fName: newValue,
+    //       lName: prev.lName,
+    //     };
+    //   } else if (inputName === "lName") {
+    //     return {
+    //       fName: prev.fName,
+    //       lName: newValue,
+    //     };
+    //   }
+    // });
+
+    //to use destructuring form to look modern
+    const { value, name } = event.target;
+    setFullName((prev) => {
+      console.log(prev);
+
+      if (name === "fName") {
+        return {
+          fName: value,
+          lName: prev.lName,
+        };
+      } else if (name === "lName") {
+        return {
+          fName: prev.fName,
+          lName: value,
+        };
+      }
+    });
+
+    // if (inputName === "fName") {
+    //   setFullName({ fName: newValue });
+    // } else if (inputName === "lName") {
+    //   setFullName({ lName: newValue });
+    // }
   }
+
+  return (
+    <div className="container">
+      <h1>
+        {" "}
+        Hello {fullName.fName} {fullName.lName}
+      </h1>
+      <form>
+        <input
+          name="fName"
+          onChange={handleChange}
+          placeholde="What's your first name"
+          value={fullName.fName}
+        />
+
+        <input
+          name="lName"
+          onChange={handleChange}
+          placeholde="What's your last name"
+          value={fullName.lName}
+        />
+      </form>
+    </div>
+  );
 }
 
 export default App;
+// import React from "react";
+// import ClassComponent from "./ClassComponent";
+// import FunctionalComponent from "./FunctionalComponent";
+
+// class App extends React.Component {
+//   render() {
+//     return <ClassComponent />;
+//   }
+// }
+
+// export default App;
 // import React, { useState } from "react";
 // function App() {
 //   const [name, setName] = useState("");
