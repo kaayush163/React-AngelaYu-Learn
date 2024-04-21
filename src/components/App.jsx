@@ -1,83 +1,148 @@
 import React, { useState } from "react";
 
 function App() {
-  const [fullName, setFullName] = useState({
+  const [contact, setContact] = useState({
     fName: "",
     lName: "",
+    email: "",
   });
 
-  function handleChange(event) {
-    // const newValue = event.target.value;
-    // const inputName = event.target.name;
-    // console.log(newValue);
-    // console.log(inputName);
-    // setFullName((prev) => {
-    //   console.log(prev);
-
-    //   if (inputName === "fName") {
-    //     return {
-    //       fName: newValue,
-    //       lName: prev.lName,
-    //     };
-    //   } else if (inputName === "lName") {
-    //     return {
-    //       fName: prev.fName,
-    //       lName: newValue,
-    //     };
-    //   }
-    // });
-
-    //to use destructuring form to look modern
-    const { value, name } = event.target;
-    setFullName((prev) => {
-      console.log(prev);
-
+  function changeState(event) {
+    const { name, value } = event.target;
+    setContact((prev) => {
       if (name === "fName") {
-        return {
+        setContact({
           fName: value,
           lName: prev.lName,
-        };
+          email: prev.email,
+        });
       } else if (name === "lName") {
-        return {
+        setContact({
           fName: prev.fName,
           lName: value,
-        };
+          email: prev.email,
+        });
+      } else if (name === "email") {
+        setContact({
+          fName: prev.fName,
+          lName: prev.lName,
+          email: value,
+        });
       }
     });
-
-    // if (inputName === "fName") {
-    //   setFullName({ fName: newValue });
-    // } else if (inputName === "lName") {
-    //   setFullName({ lName: newValue });
-    // }
   }
-
   return (
     <div className="container">
       <h1>
-        {" "}
-        Hello {fullName.fName} {fullName.lName}
+        Hello {contact.fName} {contact.lName}
       </h1>
+      <p>{contact.email}</p>
       <form>
         <input
+          onChange={changeState}
+          value={contact.fName}
           name="fName"
-          onChange={handleChange}
-          placeholde="What's your first name"
-          value={fullName.fName}
+          placeholder="First Name"
         />
-
         <input
-          name="lName"
-          onChange={handleChange}
-          placeholde="What's your last name"
-          value={fullName.lName}
+          onChange={changeState}
+          value={contact.lName}
+          name="fName"
+          placeholder="First Name"
         />
+        <input
+          onChange={changeState}
+          value={contact.email}
+          name="fName"
+          placeholder="First Name"
+        />
+        <button>Submit</button>
       </form>
     </div>
   );
 }
 
 export default App;
+
+// import React, { useState } from "react";
+
+// function App() {
+//   const [fullName, setFullName] = useState({
+//     fName: "",
+//     lName: "",
+//   });
+
+//   function handleChange(event) {
+//     // const newValue = event.target.value;
+//     // const inputName = event.target.name;
+//     // console.log(newValue);
+//     // console.log(inputName);
+//     // setFullName((prev) => {
+//     //   console.log(prev);
+
+//     //   if (inputName === "fName") {
+//     //     return {
+//     //       fName: newValue,
+//     //       lName: prev.lName,
+//     //     };
+//     //   } else if (inputName === "lName") {
+//     //     return {
+//     //       fName: prev.fName,
+//     //       lName: newValue,
+//     //     };
+//     //   }
+//     // });
+
+//     //to use destructuring form to look modern
+//     const { value, name } = event.target;
+//     setFullName((prev) => {
+//       console.log(prev);
+
+//       if (name === "fName") {
+//         return {
+//           fName: value,
+//           lName: prev.lName,
+//         };
+//       } else if (name === "lName") {
+//         return {
+//           fName: prev.fName,
+//           lName: value,
+//         };
+//       }
+//     });
+
+//     // if (inputName === "fName") {
+//     //   setFullName({ fName: newValue });
+//     // } else if (inputName === "lName") {
+//     //   setFullName({ lName: newValue });
+//     // }
+//   }
+
+//   return (
+//     <div className="container">
+//       <h1>
+//         Hello {fullName.fName} {fullName.lName}
+//       </h1>
+//       <form>
+//         <input
+//           name="fName"
+//           onChange={handleChange}
+//           placeholde="What's your first name"
+//           value={fullName.fName}
+//         />
+
+//         <input
+//           name="lName"
+//           onChange={handleChange}
+//           placeholde="What's your last name"
+//           value={fullName.lName}
+//         />
+//       </form>
+//     </div>
+//   );
+// }
+
+// export default App;
 // import React from "react";
 // import ClassComponent from "./ClassComponent";
 // import FunctionalComponent from "./FunctionalComponent";
