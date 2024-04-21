@@ -1,38 +1,73 @@
 import React, { useState } from "react";
-
 function App() {
-  const [headingText, setHeadingText] = useState("Hello");
-  const [mouseOver, setMouseOver] = useState(false);
-  // const [mouseOut, setMouseOut] = useState(false);
+  const [name, setName] = useState("");
+  const [heading, setHeading] = useState("");
+
+  function handleChange(event) {
+    console.log(event.target.value);
+    console.log(event.target.type);
+    console.log(event.target.placeholder);
+
+    setName(event.target.value);
+  }
   function handleClick() {
-    setHeadingText("Submitted");
-  }
-
-  function handleMouseOver() {
-    setMouseOver(true);
-  }
-
-  function handleMouseOut() {
-    setMouseOver(false);
+    setHeading(name);
   }
 
   return (
     <div className="container">
-      <h1>{headingText}</h1>
-      <input type="text" />
-      <button
-        style={{ backgroundColor: mouseOver ? "black" : "white" }}
-        onClick={handleClick}
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
-      >
-        onClic
-      </button>
+      <h1>Hello {heading}</h1>
+
+      <h1>DynamicIn {name}</h1>
+      <form>
+        <input
+          onChange={handleChange}
+          type="text"
+          placeholder="What's your name?"
+          value={name} //for single source of truth
+        />
+        <button onClick={handleClick}>Submit</button>
+      </form>
     </div>
   );
 }
 
 export default App;
+// import React, { useState } from "react";
+
+// function App() {
+//   const [headingText, setHeadingText] = useState("Hello");
+//   const [mouseOver, setMouseOver] = useState(false);
+//   // const [mouseOut, setMouseOut] = useState(false);
+//   function handleClick() {
+//     setHeadingText("Submitted");
+//   }
+
+//   function handleMouseOver() {
+//     setMouseOver(true);
+//   }
+
+//   function handleMouseOut() {
+//     setMouseOver(false);
+//   }
+
+//   return (
+//     <div className="container">
+//       <h1>{headingText}</h1>
+//       <input type="text" />
+//       <button
+//         style={{ backgroundColor: mouseOver ? "black" : "white" }}
+//         onClick={handleClick}
+//         onMouseOver={handleMouseOver}
+//         onMouseOut={handleMouseOut}
+//       >
+//         onClic
+//       </button>
+//     </div>
+//   );
+// }
+
+// export default App;
 // import React, { useState } from "react";
 
 // function App() {
