@@ -7,30 +7,18 @@ function App() {
     email: "",
   });
 
-  function changeState(event) {
+  function handleChange(event) {
     const { name, value } = event.target;
-    setContact((prev) => {
-      if (name === "fName") {
-        setContact({
-          fName: value,
-          lName: prev.lName,
-          email: prev.email,
-        });
-      } else if (name === "lName") {
-        setContact({
-          fName: prev.fName,
-          lName: value,
-          email: prev.email,
-        });
-      } else if (name === "email") {
-        setContact({
-          fName: prev.fName,
-          lName: prev.lName,
-          email: value,
-        });
-      }
+    // setContact((prevValue) => ({ ...prevValue, [name]: value }));
+    setContact((prevValue) => {
+      return {
+        ...prevValue,
+        [name]: value,
+        // event.target.name:value can't use event inside set state otherwise warnings will be shown
+      };
     });
   }
+
   return (
     <div className="container">
       <h1>
@@ -39,22 +27,22 @@ function App() {
       <p>{contact.email}</p>
       <form>
         <input
-          onChange={changeState}
+          onChange={handleChange}
+          name="fName"
           value={contact.fName}
-          name="fName"
           placeholder="First Name"
         />
         <input
-          onChange={changeState}
+          onChange={handleChange}
+          name="lName"
           value={contact.lName}
-          name="fName"
-          placeholder="First Name"
+          placeholder="Last Name"
         />
         <input
-          onChange={changeState}
+          onChange={handleChange}
+          name="email"
           value={contact.email}
-          name="fName"
-          placeholder="First Name"
+          placeholder="Email"
         />
         <button>Submit</button>
       </form>
@@ -63,6 +51,72 @@ function App() {
 }
 
 export default App;
+
+// import React, { useState } from "react";
+
+// function App() {
+//   const [contact, setContact] = useState({
+//     fName: "",
+//     lName: "",
+//     email: "",
+//   });
+
+//   function changeState(event) {
+//     const { name, value } = event.target;
+//     setContact((prev) => {
+//       if (name === "fName") {
+//         setContact({
+//           fName: value,
+//           lName: prev.lName,
+//           email: prev.email,
+//         });
+//       } else if (name === "lName") {
+//         setContact({
+//           fName: prev.fName,
+//           lName: value,
+//           email: prev.email,
+//         });
+//       } else if (name === "email") {
+//         setContact({
+//           fName: prev.fName,
+//           lName: prev.lName,
+//           email: value,
+//         });
+//       }
+//     });
+//   }
+//   return (
+//     <div className="container">
+//       <h1>
+//         Hello {contact.fName} {contact.lName}
+//       </h1>
+//       <p>{contact.email}</p>
+//       <form>
+//         <input
+//           onChange={changeState}
+//           value={contact.fName}
+//           name="fName"
+//           placeholder="First Name"
+//         />
+//         <input
+//           onChange={changeState}
+//           value={contact.lName}
+//           name="lName"
+//           placeholder="First Name"
+//         />
+//         <input
+//           onChange={changeState}
+//           value={contact.email}
+//           name="email"
+//           placeholder="First Name"
+//         />
+//         <button>Submit</button>
+//       </form>
+//     </div>
+//   );
+// }
+
+// export default App;
 
 // import React, { useState } from "react";
 
