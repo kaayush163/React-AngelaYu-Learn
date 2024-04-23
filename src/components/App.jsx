@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import ToDoItem from "./ToDoItem";
 function App() {
   const [inputText, setInputText] = useState("");
   const [items, setItems] = useState([]);
@@ -16,6 +16,14 @@ function App() {
     setInputText("");
   }
 
+  function deleteItem(id) {
+    console.log("checking working or not");
+    setItems((prevItem) => {
+      return prevItem.filter((item, index) => {
+        return index !== id;
+      });
+    });
+  }
   return (
     <div className="container">
       <div className="heading">
@@ -29,8 +37,14 @@ function App() {
       </div>
       <div>
         <ul>
-          {items.map((todoItem) => (
-            <li>{todoItem}</li>
+          {items.map((todoItem, index) => (
+            <ToDoItem
+              key={index}
+              id={index}
+              onChecked={deleteItem}
+              text={todoItem}
+            />
+            // <li>{todoItem}</li>
           ))}
         </ul>
       </div>
@@ -39,6 +53,47 @@ function App() {
 }
 
 export default App;
+// import React, { useState } from "react";
+
+// function App() {
+//   const [inputText, setInputText] = useState("");
+//   const [items, setItems] = useState([]);
+
+//   function handleChange(event) {
+//     const newValue = event.target.value;
+//     setInputText(newValue);
+//   }
+
+//   function addItem() {
+//     setItems((prevItems) => {
+//       return [...prevItems, inputText];
+//     });
+//     setInputText("");
+//   }
+
+//   return (
+//     <div className="container">
+//       <div className="heading">
+//         <h1>To-Do List</h1>
+//       </div>
+//       <div className="form">
+//         <input onChange={handleChange} type="text" value={inputText} />
+//         <button onClick={addItem}>
+//           <span>Add</span>
+//         </button>
+//       </div>
+//       <div>
+//         <ul>
+//           {items.map((todoItem) => (
+//             <li>{todoItem}</li>
+//           ))}
+//         </ul>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;
 
 // import React, { useState } from "react";
 
